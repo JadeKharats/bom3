@@ -31,7 +31,7 @@ abstract class MainLayout
 
       body do
         mount Shared::FlashMessages.new(context.flash)
-        tag("section", class: "hero is-primary is-fullheight-with-navbar") do
+        tag("section", class: "hero is-primary is-fullheight") do
           div(class: "hero-body") do
             div(class: "container has-text-centered") do
               content
