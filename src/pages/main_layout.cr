@@ -31,26 +31,31 @@ abstract class MainLayout
 
       body do
         mount Shared::FlashMessages.new(context.flash)
-        render_header
-        content
+        tag("section", class: "hero is-primary is-fullheight-with-navbar") do
+          div(class: "hero-body") do
+            div(class: "container has-text-centered") do
+              content
+            end
+          end
+          div(class: "hero-foot") do
+            render_footer
+          end
+        end
       end
     end
   end
 
-  private def render_header
-    tag("header") do
-      h2 "BOM"
-      render_nav
-    end
-  end
-
-  private def render_nav
-    tag("nav") do
-      li do
-        link "Profile", to: Me::Show
-      end
-      li do
-        link "Quitter", to: SignIns::Delete, flow_id: "sign-out-button"
+  private def render_footer
+    tag("nav", class: "tabs is-boxed is-fullwidth") do
+      div(class: "container") do
+        ul do
+          li do
+            link "Profile", to: Me::Show
+          end
+          li do
+            link "Quitter", to: SignIns::Delete, flow_id: "sign-out-button"
+          end
+        end
       end
     end
   end
