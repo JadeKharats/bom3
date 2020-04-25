@@ -12,6 +12,20 @@ abstract class AuthLayout
     "Welcome"
   end
 
+  def service_worker
+    raw " <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/service-worker.js')
+          .then((reg) => {
+            console.log('Service worker registered.', reg);
+          });
+      });
+      }
+  </script>
+    "
+  end
+
   def render
     html_doctype
 
@@ -21,6 +35,7 @@ abstract class AuthLayout
       body do
         mount Shared::FlashMessages.new(context.flash)
         content
+        service_worker
       end
     end
   end
