@@ -1,6 +1,6 @@
 class Moods::Create < BrowserAction
   route do
-    SaveMood.create(params) do |operation, mood|
+    SaveMood.create(params, user_id: current_user.not_nil!.id, time: Time.utc) do |operation, mood|
       if mood
         flash.success = "Humeur enregistrée"
         redirect Show.with(mood.id)
