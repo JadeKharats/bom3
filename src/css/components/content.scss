@@ -22,9 +22,21 @@
 	color: #555;
 }
 
+.content form input[type="submit"]{
+	padding: 15px;
+	flex: 1;
+	margin-right: 30px;
+	font-size: 18px;
+    color: #fff;
+    background-color: #2196F3;
+    border-radius: 4px;
+    text-align: center;
+}
+
 .content form .btn{
 	padding: 18px 42px;
 }
+
 
 
 @media (max-width: 800px){
