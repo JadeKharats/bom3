@@ -37,7 +37,7 @@ class Shared::Field(T) < BaseComponent
 
   def render
     div(class: "field") do
-      label_for attribute, label_text, class: "label is-medium"
+      label_for attribute, label_text, class: "label is-medium has-text-light"
 
       # You can add more default options here. For example:
       #
