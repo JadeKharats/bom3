@@ -12,7 +12,7 @@ class Moods::NewPage < MainLayout
       # Edit fields in src/components/moods/form_fields.cr
       mount Moods::FormFields.new(op)
 
-      submit "Save", data_disable_with: "Saving..."
+      submit "Save", data_disable_with: "Saving...", class: "button is-primary is-inverted is-medium"
     end
   end
 end

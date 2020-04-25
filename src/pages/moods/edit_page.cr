@@ -14,7 +14,7 @@ class Moods::EditPage < MainLayout
       # Edit fields in src/components/moods/form_fields.cr
       mount Moods::FormFields.new(op)
 
-      submit "Update", data_disable_with: "Updating..."
+      submit "Update", data_disable_with: "Updating...", class: "button is-primary is-inverted is-medium"
     end
   end
 end
