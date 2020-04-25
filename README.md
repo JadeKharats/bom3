@@ -1,5 +1,8 @@
 # bom
 
+![Crystal CI](https://github.com/JadeKharats/bom3/workflows/Crystal%20CI/badge.svg)
+
+
 This is a project written using [Lucky](https://luckyframework.org). Enjoy!
 
 ### Setting up the project
