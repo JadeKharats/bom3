@@ -3,10 +3,10 @@ class Moods::Update < BrowserAction
     mood = MoodQuery.find(mood_id)
     SaveMood.update(mood, params) do |operation, mood|
       if operation.saved?
-        flash.success = "The record has been updated"
+        flash.success = "Enregistrement mis à jour"
         redirect Show.with(mood.id)
       else
-        flash.failure = "It looks like the form is not valid"
+        flash.failure = "Il semblerait que le formulaire ne soit pas correct"
         html EditPage, operation: operation, mood: mood
       end
     end

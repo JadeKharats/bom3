@@ -4,11 +4,11 @@ class SignUps::Create < BrowserAction
   post "/sign_up" do
     SignUpUser.create(params) do |operation, user|
       if user
-        flash.info = "Thanks for signing up"
+        flash.info = "Merci pour votre inscription"
         sign_in(user)
         redirect to: Home::Index
       else
-        flash.info = "Couldn't sign you up"
+        flash.info = "Nous n'arrivons pas à vous inscrire"
         html NewPage, operation: operation
       end
     end

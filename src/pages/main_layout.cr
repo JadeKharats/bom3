@@ -20,13 +20,13 @@ abstract class MainLayout
   #
   # This will force pages to define their own 'page_title' method.
   def page_title
-    "Welcome"
+    "Bienvenue"
   end
 
   def render
     html_doctype
 
-    html lang: "en" do
+    html lang: "fr" do
       mount Shared::LayoutHead.new(page_title: page_title, context: context)
 
       body do
@@ -40,6 +40,6 @@ abstract class MainLayout
   private def render_signed_in_user
     text current_user.email
     text " - "
-    link "Sign out", to: SignIns::Delete, flow_id: "sign-out-button"
+    link "Quitter", to: SignIns::Delete, flow_id: "sign-out-button"
   end
 end

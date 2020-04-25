@@ -2,13 +2,13 @@
 #
 # https://luckyframework.org/guides/http-and-routing/error-handling
 class Errors::Show < Lucky::ErrorAction
-  DEFAULT_MESSAGE = "Something went wrong."
+  DEFAULT_MESSAGE = "Houlà."
   default_format :html
   dont_report [Lucky::RouteNotFoundError]
 
   def render(error : Lucky::RouteNotFoundError)
     if html?
-      error_html "Sorry, we couldn't find that page.", status: 404
+      error_html "Désolé, nous ne trouvons pas cette page.", status: 404
     else
       error_json "Not found", status: 404
     end

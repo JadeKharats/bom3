@@ -9,7 +9,7 @@ abstract class AuthLayout
   # Add a `page_title` method to pages to override it. You can also remove
   # This method so every page is required to have its own page title.
   def page_title
-    "Welcome"
+    "Bienvenue"
   end
 
   def service_worker
@@ -29,7 +29,7 @@ abstract class AuthLayout
   def render
     html_doctype
 
-    html lang: "en" do
+    html lang: "fr" do
       mount Shared::LayoutHead.new(page_title: page_title, context: context)
 
       body do

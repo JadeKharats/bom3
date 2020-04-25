@@ -2,10 +2,10 @@ class Moods::Create < BrowserAction
   route do
     SaveMood.create(params) do |operation, mood|
       if mood
-        flash.success = "The record has been saved"
+        flash.success = "Humeur enregistrée"
         redirect Show.with(mood.id)
       else
-        flash.failure = "It looks like the form is not valid"
+        flash.failure = "Il semblerait que le formulaire ne soit pas correct"
         html NewPage, operation: operation
       end
     end

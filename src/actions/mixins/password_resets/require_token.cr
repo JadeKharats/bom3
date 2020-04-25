@@ -10,7 +10,7 @@ module Auth::PasswordResets::RequireToken
     if Authentic.valid_password_reset_token?(user, token)
       continue
     else
-      flash.failure = "The password reset link is incorrect or expired. Please try again."
+      flash.failure = "Ce lien n'est plus valide."
       redirect to: PasswordResetRequests::New
     end
   end
