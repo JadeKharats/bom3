@@ -2,21 +2,46 @@ name: Crystal CI
 
 on:
   push:
-    branches: [ master ]
+    branches:
+      - master
   pull_request:
-    branches: [ master ]
+    branches: 
+      - master
 
 jobs:
   build:
 
     runs-on: ubuntu-latest
-
-    container:
-      image: crystallang/crystal
-
+    
+#    container:
+#      image: crystallang/crystal
+    
+    services:
+      postgres:
+        image: postgres:10.10
+        env:
+          POSTGRES_USER: bom
+          POSTGRES_PASSWORD: bom
+          POSTGRES_DB: bom_test
+        ports:
+        # will assign a random free host port
+        - 5432/tcp
+        # needed because the postgres container does not provide a healthcheck
+        options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
+            
     steps:
     - uses: actions/checkout@v2
-    - name: Install dependencies
+    - name: Setup crystal repo
+      run: curl -sSL https://dist.crystal-lang.org/apt/setup.sh | sudo bash
+    - name: Install crystal and system dependencies
+      run: sudo apt install crystal libyaml-dev
+    - name: Install crystal dependencies
       run: shards install
+    - name: Install JS dependencies
+      run: yarn install
+    - name: Compile Assets
+      run: yarn dev
     - name: Run tests
       run: crystal spec
+      env:
+        DATABASE_URL: "postgres://bom:bom@localhost:${{ job.services.postgres.ports['5432'] }}/bom_test"
