@@ -37,7 +37,9 @@
 	padding: 18px 42px;
 }
 
-
+.content a.btn{
+	padding: 20px 46px;
+}
 
 @media (max-width: 800px){
 
@@ -46,4 +48,19 @@
 		margin: 0 0 20px 0;
 	}
 
+	.content{
+		// min-height: 600px;
+	}
+
+	.content h1{
+		font-size: 48px;
+	}
+
+	.content h3{
+		font-size: 24px;
+	}
+
+	.content a.btn{
+		padding: 15px 40px;
+	}
 }
