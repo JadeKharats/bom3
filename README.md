@@ -1,7 +1,7 @@
-# bom
+# Boite à Outil Manager 3
 
 ![Crystal CI](https://github.com/JadeKharats/bom3/workflows/Crystal%20CI/badge.svg)
-
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/28ba45ad534f4c1baa3bb78f081fb4f1)](https://www.codacy.com/manual/jade_kharats/bom3?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=JadeKharats/bom3&amp;utm_campaign=Badge_Grade)
 
 This is a project written using [Lucky](https://luckyframework.org). Enjoy!
 
