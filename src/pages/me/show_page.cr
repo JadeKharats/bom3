@@ -1,25 +1,45 @@
 class Me::ShowPage < MainLayout
   needs my_moods : MoodQuery
   def content
-    tag("section", class: "content") do
-      # h3 "Compte :  #{@current_user.email}"
+    div(class: "tile is-ancestor") do
       mood_of_the_day
       all_my_moods
     end
-
   end
 
+
   private def mood_of_the_day
-    h3 "Humeur du moment"
-    link "Poster une nouvelle humeur", to: Moods::New, class: "btn"
+    div(class: "tile is-parent") do
+      tag("articles", class: "tile is-child box") do
+        tag("p",class: "title has-text-primary") do
+          text "Humeur du moment"
+        end
+        div(class: "content") do
+          link "Poster une nouvelle humeur", to: Moods::New, class: "button is-primary"
+        end
+      end
+    end
   end
 
   private def all_my_moods
-    h3 "Mon historique"
-    ul do
-      @my_moods.each do |mood|
-        li do
-          link "#{mood.level} - #{mood.comment}", Moods::Show.with(mood)
+    div(class: "tile is-parent") do
+      tag("articles", class: "tile is-child box") do
+        tag("p",class: "title has-text-primary") do
+          text "Mon historique"
+        end
+        div(class: "content") do
+          @my_moods.each do |mood|
+            div(class: "box") do
+              tag("article", class: "media") do
+                div(class: "media-left") do
+                  text "#{mood.level}"
+                end
+                div(class: "media-content") do
+                  text "#{mood.comment}"
+                end
+              end
+            end
+          end
         end
       end
     end
