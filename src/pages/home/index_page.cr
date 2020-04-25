@@ -1,9 +1,12 @@
 class Home::IndexPage < AuthLayout
   def content
-    tag("section", class: "main") do
-      background
-      title
-      button
+    tag("section", class: "hero is-primary is-fullheight") do
+      div(class: "hero-body") do
+        div(class: "container has-text-centered") do
+          title
+          button
+        end
+      end
     end
   end
 
@@ -12,11 +15,15 @@ class Home::IndexPage < AuthLayout
   end
 
   private def title
-    h1 "Bienvenue Sur BOM3"
-    h3 "Comment vous sentez-vous?"
+    h1(class: "title") do
+      text "Bienvenue Sur BOM3"
+    end
+    h2(class: "subtitle") do
+      text "Comment vous sentez-vous?"
+    end
   end
 
   private def button
-    link "Se connecter", to: SignIns::New, class: "btn"
+    link "Se connecter", to: SignIns::New, class: "button is-primary is-inverted"
   end
 end

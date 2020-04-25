@@ -12,12 +12,7 @@
 // https://stackoverflow.com/questions/39535760/what-does-a-tilde-in-a-css-url-do
 
 @import "~normalize-scss/sass/normalize/import-now";
+@import "~bulma/bulma";
 // Add your own components and import them like this:
 //
 // @import "components/my_new_component";
-@import "components/body";
-@import "components/link";
-@import "components/header";
-@import "components/main";
-@import "components/section";
-@import "components/content";

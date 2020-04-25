@@ -2,14 +2,16 @@ class SignIns::NewPage < AuthLayout
   needs operation : SignInUser
 
   def content
-    tag("section", class: "content") do
+    tag("section", class: "hero is-primary is-fullheight") do
       title
       render_sign_in_form(@operation)
     end
   end
 
   private def title
-    h1 "Connexion"
+    h1(class: "title") do
+      text "Connexion"
+    end
   end
 
   private def render_sign_in_form(op)
@@ -18,7 +20,6 @@ class SignIns::NewPage < AuthLayout
       submit "Se connecter", flow_id: "sign-in-button", class: "btn"
     end
     link "Mot de passe perdu?", to: PasswordResetRequests::New
-    text " | "
     link "S'inscire", to: SignUps::New
   end
 
