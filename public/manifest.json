@@ -1,6 +1,6 @@
 {
-  "name": "Acoustic",
-  "short_name": "Acoustic",
+  "name": "Boite à Outils du Manager",
+  "short_name": "BOM3",
   "icons": [{
     "src": "/images/pwa-192x192.png",
       "sizes": "192x192",
