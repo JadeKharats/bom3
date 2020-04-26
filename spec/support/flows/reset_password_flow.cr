@@ -5,7 +5,7 @@ class ResetPasswordFlow < BaseFlow
   delegate email, to: user
 
   def initialize(@user : User)
-    @authentication_flow = AuthenticationFlow.new(user.email)
+    @authentication_flow = AuthenticationFlow.new(user.email, user.pseudo)
   end
 
   def request_password_reset
