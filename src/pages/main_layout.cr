@@ -41,6 +41,7 @@ abstract class MainLayout
             render_footer
           end
         end
+        service_worker
       end
     end
   end
@@ -58,5 +59,19 @@ abstract class MainLayout
         end
       end
     end
+  end
+
+  def service_worker
+    raw " <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/service-worker.js')
+          .then((reg) => {
+            console.log('Service worker registered.', reg);
+          });
+      });
+      }
+  </script>
+    "
   end
 end
