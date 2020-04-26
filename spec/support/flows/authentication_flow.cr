@@ -1,13 +1,15 @@
 class AuthenticationFlow < BaseFlow
   private getter email
+  private getter pseudo
 
-  def initialize(@email : String)
+  def initialize(@email : String, @pseudo : String)
   end
 
   def sign_up(password)
     visit SignUps::New
     fill_form SignUpUser,
       email: email,
+      pseudo: pseudo,
       password: password,
       password_confirmation: password
     click "@sign-up-button"
