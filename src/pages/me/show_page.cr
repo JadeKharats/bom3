@@ -2,6 +2,9 @@ class Me::ShowPage < MainLayout
   needs my_moods : MoodQuery
   def content
     div(class: "tile is-ancestor") do
+      h2(class: "has-text-light") do
+        text "@#{current_user.pseudo}"
+      end
       mood_of_the_day
       all_my_moods
     end

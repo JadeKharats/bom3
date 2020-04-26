@@ -5,6 +5,7 @@ class User < BaseModel
   table do
     column email : String
     column encrypted_password : String
+    column pseudo : String
 
     has_many moods : Mood
   end
