@@ -11,7 +11,7 @@
         "sizes": "512x512",
         "type": "image/png"
       }],
-  "start_url": "/",
+  "start_url": "/sign_in",
   "display": "standalone",
   "background_color": "#00d1b2",
   "theme_color": "#f2c533"
