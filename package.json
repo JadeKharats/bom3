@@ -3,7 +3,6 @@
   "private": true,
   "dependencies": {
     "@rails/ujs": "^6.0.0",
-    "bulma-carousel": "^4.0.4",
     "normalize-scss": "^7.0.1",
     "turbolinks": "^5.2.0"
   },
