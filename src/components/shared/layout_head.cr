@@ -9,6 +9,7 @@ class Shared::LayoutHead < BaseComponent
       title "Boite à Outils Manager - #{@page_title}"
       css_link asset("css/app.css"), data_turbolinks_track: "reload"
       js_link asset("js/app.js"), defer: "true", data_turbolinks_track: "reload"
+      js_link "https://kit.fontawesome.com/369b1ed323.js", crossorigin: "anonymous"
       meta name: "turbolinks-cache-control", content: "no-cache"
       raw "<link rel=\"manifest\" href=\"/manifest.json\">"
       csrf_meta_tags
