@@ -3,7 +3,11 @@ class Teams::NewPage < MainLayout
   quick_def page_title, "New Team"
 
   def content
-    h1 "New Team"
+    div(class: "tile is-ancestor") do
+      h2(class: "title has-text-light") do
+        text "Création d'équipe"
+      end
+    end
     render_team_form(@operation)
   end
 
@@ -12,7 +16,7 @@ class Teams::NewPage < MainLayout
       # Edit fields in src/components/teams/form_fields.cr
       mount Teams::FormFields.new(op)
 
-      submit "Save", data_disable_with: "Saving..."
+      submit "Créer", data_disable_with: "Saving...", class: "button is-primary is-inverted is-medium"
     end
   end
 end

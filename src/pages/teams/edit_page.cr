@@ -4,8 +4,11 @@ class Teams::EditPage < MainLayout
   quick_def page_title, "Edit Team with id: #{@team.id}"
 
   def content
-    link "Back to all Teams", Teams::Index
-    h1 "Edit Team with id: #{@team.id}"
+    div(class: "tile is-ancestor") do
+      h2(class: "title has-text-light") do
+        text "Edition d'équipe"
+      end
+    end
     render_team_form(@operation)
   end
 
@@ -14,7 +17,7 @@ class Teams::EditPage < MainLayout
       # Edit fields in src/components/teams/form_fields.cr
       mount Teams::FormFields.new(op)
 
-      submit "Update", data_disable_with: "Updating..."
+      submit "Mettre à jour", data_disable_with: "Updating...", class: "button is-primary is-inverted is-medium"
     end
   end
 end
