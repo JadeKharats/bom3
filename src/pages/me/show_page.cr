@@ -29,10 +29,12 @@ class Me::ShowPage < MainLayout
         end
         div(class: "content") do
           @my_moods.each do |mood|
-            div(class: "box") do
+            div(class: "box has-background-#{color_level(mood.level)} has-text-light") do
               tag("article", class: "media") do
                 div(class: "media-left") do
-                  text "#{mood.level}"
+                  span(class: "icon is-medium") do
+                    tag("i", class: "far fa-2x fa-#{icon_level(mood.level)}")
+                  end
                 end
                 div(class: "media-content") do
                   text "#{mood.comment}"
@@ -43,5 +45,21 @@ class Me::ShowPage < MainLayout
         end
       end
     end
+  end
+
+  private def color_level(level)
+    return "danger" if level == 1
+    return "warning" if level == 2
+    return "grey-light" if level == 3
+    return "info" if level == 4
+    "success"
+  end
+
+  private def icon_level(level)
+    return "angry" if level == 1
+    return "frown" if level == 2
+    return "meh" if level == 3
+    return "laugh" if level == 4
+    "grin-squint-tears"
   end
 end
