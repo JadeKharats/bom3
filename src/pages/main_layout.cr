@@ -30,8 +30,8 @@ abstract class MainLayout
       mount Shared::LayoutHead.new(page_title: page_title, context: context)
 
       body do
-        mount Shared::FlashMessages.new(context.flash)
         tag("section", class: "hero is-primary is-fullheight") do
+          mount Shared::FlashMessages.new(context.flash)
           div(class: "hero-body") do
             div(class: "container has-text-centered") do
               content
@@ -52,6 +52,9 @@ abstract class MainLayout
         ul do
           li do
             link "Profile", to: Me::Show
+          end
+          li do
+            link "Equipes", to: Me::Show
           end
           li do
             link "Quitter", to: SignIns::Delete, flow_id: "sign-out-button"
