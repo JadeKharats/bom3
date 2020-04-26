@@ -54,7 +54,7 @@ abstract class MainLayout
             link "Profile", to: Me::Show
           end
           li do
-            link "Equipes", to: Me::Show
+            link "Equipes", to: Teams::Index
           end
           li do
             link "Quitter", to: SignIns::Delete, flow_id: "sign-out-button"

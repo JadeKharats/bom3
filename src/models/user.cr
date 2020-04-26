@@ -8,6 +8,8 @@ class User < BaseModel
     column pseudo : String
 
     has_many moods : Mood
+    has_many members : Member
+    has_many teams : Team, through: :members
   end
 
   def emailable : Carbon::Address
