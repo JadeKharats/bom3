@@ -3,7 +3,6 @@ class Moods::NewPage < MainLayout
   quick_def page_title, "New Mood"
 
   def content
-    h1 "New Mood"
     render_mood_form(@operation)
   end
 
@@ -12,7 +11,7 @@ class Moods::NewPage < MainLayout
       # Edit fields in src/components/moods/form_fields.cr
       mount Moods::FormFields.new(op)
 
-      submit "Save", data_disable_with: "Saving...", class: "button is-primary is-inverted is-medium"
+      submit "Envoyer", data_disable_with: "Saving...", class: "button is-primary is-inverted is-medium"
     end
   end
 end
