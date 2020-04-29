@@ -41,7 +41,7 @@ class SignIns::NewPage < AuthLayout
             link "Mot de passe perdu?", to: PasswordResetRequests::New
           end
           li do
-            link "S'inscire", to: SignUps::New
+            link "S'inscrire", to: SignUps::New
           end
         end
       end
