@@ -16,39 +16,3 @@
 // Add your own components and import them like this:
 //
 // @import "components/my_new_component";
-
-::-webkit-scrollbar{width:2px;height:2px;}
-::-webkit-scrollbar-button{width:2px;height:2px;}
-
-.horizontal-scroll-wrapper{
-  position:absolute;
-  display:block;
-  top:0;
-  left:0;
-  width:80px;
-  max-height:360px;
-  margin:0;
-  overflow-y:auto;
-  overflow-x:hidden;
-  transform:rotate(-90deg) translateY(-80px);
-  transform-origin:right top;
-}
-.horizontal-scroll-wrapper > div{
-  display:block;
-  padding:5px;
-  transform:rotate(90deg);
-  transform-origin: right top;
-}
-
-.rectangles{
-  top:100px;
-  padding:100px 0 0 0;
-}
-.rectangles > div{
-  width:140px;
-  height:60px;
-  margin:50px 10px;
-  padding:5px;
-  transform:rotate(90deg) translateY(80px);
-  transform-origin: right top;
-}
