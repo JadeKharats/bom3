@@ -14,7 +14,7 @@ class Moods::FormFields < BaseComponent
           <option value=\"2\">Pas terrible</option>
           <option value=\"3\" selected=\"true\">Normale</option>
           <option value=\"4\">Plutot bonne journée</option>
-          <option value=\"4\">Béni par Titania et Oberon</option>
+          <option value=\"5\">Béni par Titania et Oberon</option>
         </select>"
   end
 end
