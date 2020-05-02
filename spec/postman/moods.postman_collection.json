@@ -1,0 +1,122 @@
+{
+	"info": {
+		"_postman_id": "7f69c703-3994-42ff-a2c3-2ad1457b8733",
+		"name": "moods",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "SIGN_IN",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"user\":{\n\t\t\"email\": \"d.yoteau@conserto.pro\",\n\t\t\"password\": \"Pikachu1234\"\n\t}\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/api/sign_ins",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"sign_ins"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SIGNUP",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"user\":{\n\t\t\"email\":\"d.yoteau@conserto.pro\",\n\t\t\"password\":\"Pikachu1234\",\n\t\t\"password_confirmation\":\"Pikachu1234\"\t\n\t}\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/api/sign_ups",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"sign_ups"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ME Copy",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.scfAa47zP6hXw3v-b4E9PnZyoe_w49R2AjoWw9fflDE",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/me",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"me"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Moods",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.scfAa47zP6hXw3v-b4E9PnZyoe_w49R2AjoWw9fflDE",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/me",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"me"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
