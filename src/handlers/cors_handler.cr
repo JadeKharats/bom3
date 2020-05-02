@@ -8,19 +8,23 @@ class CORSHandler
   ]
 
   def call(context)
-    request_origin = context.request.headers["Origin"]
+    if context.request.path.includes? "api"
+      request_origin = context.request.headers["Origin"]
 
-    context.response.headers["Access-Control-Allow-Origin"] = allowed_origin?(request_origin) ? request_origin : ""
-    context.response.headers["Access-Control-Allow-Credentials"] = "true"
-    context.response.headers["Access-Control-Allow-Methods"] = "POST,GET,OPTIONS"
-    context.response.headers["Access-Control-Allow-Headers"] = "DNT,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range,Authentication,Authorization"
+      context.response.headers["Access-Control-Allow-Origin"] = allowed_origin?(request_origin) ? request_origin : ""
+      context.response.headers["Access-Control-Allow-Credentials"] = "true"
+      context.response.headers["Access-Control-Allow-Methods"] = "POST,GET,OPTIONS"
+      context.response.headers["Access-Control-Allow-Headers"] = "DNT,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range,Authentication,Authorization"
 
-    if context.request.method == "OPTIONS"
-      context.response.status = HTTP::Status::NO_CONTENT
-      context.response.headers["Access-Control-Max-Age"] = "1728000"
-      context.response.headers["Content-Type"] = "text/plain"
-      context.response.headers["Content-Length"] = "0"
-      context
+      if context.request.method == "OPTIONS"
+        context.response.status = HTTP::Status::NO_CONTENT
+        context.response.headers["Access-Control-Max-Age"] = "1728000"
+        context.response.headers["Content-Type"] = "text/plain"
+        context.response.headers["Content-Length"] = "0"
+        context
+      else
+        call_next(context)
+      end
     else
       call_next(context)
     end
