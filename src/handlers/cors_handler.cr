@@ -37,6 +37,6 @@ class CORSHandler
   end
 
   private def sites_allowed_for_requests
-     ["beta-wall-bom3.herokuapp.com"]
+     ["https://beta-wall-bom3.herokuapp.com"]
   end
 end
