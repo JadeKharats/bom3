@@ -17,8 +17,8 @@ jobs:
       postgres:
         image: postgres:10.10
         env:
-          POSTGRES_USER: $GITHUB_ACTOR
-          POSTGRES_PASSWORD: $GITHUB_ACTOR
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
           POSTGRES_DB: test
         ports:
         # will assign a random free host port
@@ -41,4 +41,4 @@ jobs:
     - name: Run tests
       run: crystal spec
       env:
-        DATABASE_URL: "postgres://$GITHUB_ACTOR:$GITHUB_ACTOR@localhost:${{ job.services.postgres.ports['5432'] }}/$test"
+        DATABASE_URL: "postgres://postgres:postgres@localhost:${{ job.services.postgres.ports['5432'] }}/test"
