@@ -13,16 +13,13 @@ jobs:
 
     runs-on: ubuntu-latest
     
-#    container:
-#      image: crystallang/crystal
-    
     services:
       postgres:
         image: postgres:10.10
         env:
-          POSTGRES_USER: bom
-          POSTGRES_PASSWORD: bom
-          POSTGRES_DB: bom_test
+          POSTGRES_USER: $GITHUB_ACTOR
+          POSTGRES_PASSWORD: $GITHUB_ACTOR
+          POSTGRES_DB: $GITHUB_ACTOR_test
         ports:
         # will assign a random free host port
         - 5432/tcp
@@ -44,4 +41,4 @@ jobs:
     - name: Run tests
       run: crystal spec
       env:
-        DATABASE_URL: "postgres://bom:bom@localhost:${{ job.services.postgres.ports['5432'] }}/bom_test"
+        DATABASE_URL: "postgres://$GITHUB_ACTOR:$GITHUB_ACTOR@localhost:${{ job.services.postgres.ports['5432'] }}/$GITHUB_ACTOR_test"
